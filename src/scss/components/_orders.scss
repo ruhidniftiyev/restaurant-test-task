@@ -1,0 +1,17 @@
+@import '../variables';
+
+.orders {
+    width: $container-width;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 1000px;
+    margin: 90px auto;
+
+    &__content-title {
+        margin: 35px 0;
+        @media (max-width: 768px) {
+          font-size: 36px;
+        }
+      }
+}

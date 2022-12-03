@@ -1,0 +1,9 @@
+@import '../variables';
+
+.order-item {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    border-bottom: 1px solid darkgray;
+    align-items: center;
+}
