@@ -4,6 +4,32 @@
     display: flex;
     justify-content: space-around;
     height: 40px;
-    border-bottom: 1px solid darkgray;
+    border-top: 1px solid $gray-line;
     align-items: center;
+
+    @media (max-width: 768px) {
+        
+        &__date {
+            display: none;
+        }
+        
+        p {
+            font-size: 13px;
+        }
+      }
+
+    &__view {
+        background-color: #fff;
+        color: $black;
+        border-radius: 10px;
+        height: 30px;
+        width: 45px;
+        transition: .3s;
+        cursor: pointer;
+    }
+
+    &__view:hover {
+        background-color: $black;
+        color: #fff;
+    }
 }

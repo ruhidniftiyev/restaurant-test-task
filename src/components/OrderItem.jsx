@@ -7,7 +7,7 @@ const OrderItem = ({ num, table, waiter, orderState, bill, date }) => {
       <p className="order-item__table">{table}</p>
       <p className="order-item__waiter">{waiter}</p>
       <p className="order-item__orderState">{orderState}</p>
-      <p className="order-item__bill">{bill}</p>
+      <p className="order-item__bill">{bill} ₼</p>
       <p className="order-item__date">{date}</p>
       <button className="order-item__view">Bax</button>
     </div>

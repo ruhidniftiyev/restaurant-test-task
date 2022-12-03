@@ -1,17 +1,79 @@
 @import '../variables';
 
 .orders {
-    width: $container-width;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 1000px;
-    margin: 90px auto;
+  width: $container-width;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+//   margin: 90px auto;
 
-    &__content-title {
-        margin: 35px 0;
-        @media (max-width: 768px) {
-          font-size: 36px;
-        }
-      }
+  &__list {
+    text-align: center;
+  }
+
+  &__content-title {
+    margin: 35px 0;
+    font-size: 32px;
+    font-weight: 800;
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
+
+    img {
+      width: 30px;
+      position: relative;
+      top: 4px;
+      margin-right: 10px;
+    }
+  }
+
+  &__no-order-img {
+    margin-top: 30px;
+    width: 300px;
+  }
+
+  &__no-order-text{
+    margin-top: 10px;
+    font-size: 18px;
+    color: #777;
+  } 
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 45px;
+
+    span {
+      font-size: 22px;
+    }
+  }
+
+  &__new-order-btn {
+    display: inline-block;
+    background-color: $orange;
+    color: #fff;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    padding: 10px 20px;
+    min-width: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  &__no-order-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  &__new-order-btn:hover {
+    background-color: rgba(255, 68, 0, 0.705);
+    color: #fff;
+  }
 }
