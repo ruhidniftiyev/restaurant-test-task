@@ -11,6 +11,7 @@ const FoodsOrder = () => {
   const orders = useSelector(getOrdersSelector);
   const currentId = useSelector(getOrderIdSelector);
 
+  const currentOrderState = orders[currentId].orderState;
   const foodsOrder = orders[currentId].foods;
   const totalBill = orders[currentId].totalPrice;
 
@@ -61,9 +62,13 @@ const FoodsOrder = () => {
           <span>
             Cəmi məbləğ: <b>{totalBill || 0} ₼</b>
           </span>
-          <Link to="/add">
-            <button className="foods-order__new-food-btn">Məhsul əlavə et</button>
-          </Link>
+          {currentOrderState === false ? (
+            ''
+          ) : (
+            <Link to="/add">
+              <button className="foods-order__new-food-btn">Məhsul əlavə et</button>
+            </Link>
+          )}
         </div>
       </div>
       <div className="foods-order__bottom">
@@ -83,7 +88,7 @@ const FoodsOrder = () => {
               </button>
             ) : (
               <button onClick={stopOrderClick} className="foods-order__stop-btn">
-                Sonlandır
+                {currentOrderState === false ? 'Sonlanıb' : 'Sonlandır'}
               </button>
             )}
           </Link>
