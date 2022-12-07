@@ -1,35 +1,48 @@
 @import '../variables';
 
 .order-item {
-    display: flex;
-    justify-content: space-around;
-    height: 40px;
-    border-top: 1px solid $gray-line;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  height: 40px;
+  border-top: 1px solid $gray-line;
+  align-items: center;
 
-    @media (max-width: 768px) {
-        
-        &__date {
-            display: none;
-        }
-        
-        p {
-            font-size: 13px;
-        }
-      }
+  p {
+    min-width: 90px;
+  }
 
-    &__view {
-        background-color: #fff;
-        color: $black;
-        border-radius: 10px;
-        height: 30px;
-        width: 45px;
-        transition: .3s;
-        cursor: pointer;
+  &__date {
+    width: 155px;
+  }
+
+  @media (max-width: 768px) {
+    &__date {
+      display: none;
     }
 
-    &__view:hover {
-        background-color: $black;
-        color: #fff;
+    p {
+      font-size: 13px;
     }
+  }
+
+  &__view {
+    background-color: #fff;
+    color: $black;
+    border-radius: 10px;
+    height: 30px;
+    width: 45px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  &__view:hover {
+    background-color: $black;
+    color: #fff;
+  }
+}
+
+.active {
+  p {
+    color: red !important;
+  }
 }

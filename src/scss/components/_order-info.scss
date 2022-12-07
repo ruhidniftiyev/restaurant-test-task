@@ -1,0 +1,159 @@
+@import '../variables';
+
+.order-info {
+  width: $container-width;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  &__title {
+    margin: 35px 0;
+    font-size: 32px;
+    font-weight: 800;
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
+  }
+
+  label {
+    display: flex;
+    flex-direction: column;
+
+    .select-title {
+      position: relative;
+      right: 50px;
+    }
+  }
+
+  select {
+    margin-top: 10px;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 280px;
+
+    button {
+      background-color: $orange;
+      color: #fff;
+      border: 1px solid transparent;
+      border-radius: 30px;
+      padding: 10px 15px;
+      min-width: 100px;
+      font-size: 16px;
+      font-weight: 600;
+      width: 160px;
+      height: 50px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      left: 170px;
+      top: 20px;
+    }
+
+    button:hover {
+      background-color: rgba(255, 68, 0, 0.705);
+      color: #fff;
+    }
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    &-count {
+      display: flex;
+      width: 100px;
+      justify-content: space-around;
+      b {
+        font-size: 22px;
+      }
+
+      span {
+        border-radius: 30px;
+        border: 2px solid $orange;
+        width: 32px;
+        height: 32px;
+        transition: all 0.15s ease-in-out;
+        color: $orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      span:hover {
+        background-color: $orange;
+        color: #fff;
+      }
+    }
+
+    &-price {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      bottom: 10px;
+
+      span {
+        font-size: 18px;
+      }
+
+      b {
+        font-size: 22px;
+      }
+    }
+  }
+
+  &__go-back-btn {
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 30px;
+    padding: 10px 15px;
+    min-width: 80px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 160px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    position: relative;
+    bottom: 30px;
+    right: 90px;
+    border: 1px solid #c3c3c3;
+
+    img {
+      position: relative;
+      top: 1px;
+      right: 10px;
+    }
+
+    span {
+      color: #c3c3c3;
+    }
+  }
+
+  &__go-back-btn:hover {
+    background-color: $black;
+
+    span {
+      color: #fff;
+      font-size: 16px;
+    }
+  }
+}

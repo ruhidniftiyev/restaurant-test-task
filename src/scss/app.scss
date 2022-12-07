@@ -26,7 +26,6 @@ body {
 
 .content {
   padding: 40px 0;
-  
 
   &__title {
     margin: 35px 0;
@@ -460,4 +459,17 @@ body {
 .material-symbols-outlined {
   font-size: 15px;
   font-weight: 900 !important;
+}
+
+.material-symbols-outlined:active {
+  transform: translateY(1px);
+}
+
+button,
+span {
+  -webkit-user-select: none;
+}
+
+button:active {
+  transform: translateY(1px);
 }

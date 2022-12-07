@@ -1,0 +1,73 @@
+@import '../variables';
+
+@import '../variables';
+
+.food-item {
+  display: flex;
+  justify-content: space-between;
+  height: 40px;
+  border-top: 1px solid $gray-line;
+  align-items: center;
+
+  &__title {
+    min-width: 150px !important;
+  }
+
+  p {
+    // max-width: 120px;
+    min-width: 90px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  // &__title {
+  //   min-width: 180px !important;
+  // }
+
+  // &__price {
+  //   min-width: 20px !important;
+  // }
+
+  @media (max-width: 768px) {
+    &__date {
+      display: none;
+    }
+
+    p {
+      font-size: 13px;
+    }
+  }
+
+  &__order-status {
+    background-color: rgb(112, 227, 112);
+    color: #fff;
+    border-radius: 10px;
+  }
+
+  .disabled {
+    background-color: darkgray;
+  }
+
+span {
+  font-size: 14px;
+}
+
+  button {
+    background-color: #fff;
+    color: $black;
+    border-radius: 10px;
+    height: 30px;
+    width: 65px;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    left: 15px;
+    box-sizing: border-box;
+  }
+
+  button:hover {
+    background-color: $black;
+    color: #fff;
+  }
+}

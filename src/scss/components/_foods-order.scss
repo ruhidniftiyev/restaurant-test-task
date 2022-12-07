@@ -1,4 +1,6 @@
-.new-order {
+@import '../variables';
+
+.foods-order {
   width: $container-width;
   margin: 0 auto;
   display: flex;
@@ -8,7 +10,12 @@
   margin-top: 15px;
   margin-bottom: 15px;
 
-  &__content-title {
+  &__error-message {
+    margin-top: 40px;
+    font-size: 22px;
+  }
+
+  &__title {
     margin: 35px 0;
     font-size: 32px;
     font-weight: 800;
@@ -17,49 +24,48 @@
     }
   }
 
-  form {
-    margin: 0 auto;
-    max-width: 280px;
+  &__thead {
+    p {
+      font-weight: 700;
+    }
+  }
+
+  &__details {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 45px;
+
+    span {
+      font-size: 22px;
+    }
   }
 
-  select {
-    width: 280px;
-    height: 40px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 10px;
-    border: 1px darkgray solid;
-    margin-bottom: 40px;
-    padding-left: 10px;
-  }
-
-  &__add-btn {
+  &__new-food-btn {
     display: inline-block;
     background-color: $orange;
     color: #fff;
-    border: 1px solid transparent;
     border-radius: 30px;
     padding: 10px 15px;
-    min-width: 100px;
+    min-width: 80px;
     font-size: 16px;
     font-weight: 600;
     width: 160px;
     height: 50px;
     text-align: center;
     cursor: pointer;
-    margin-left: 60px;
-    margin-bottom: 10px;
     transition: 0.2s;
-    position: relative;
-    left: 90px;
-    top: 10px;
+    border: 1px solid transparent;
   }
 
-  &__add-btn:hover {
+  &__new-food-btn:hover {
     background-color: rgba(255, 68, 0, 0.705);
     color: #fff;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
   }
 
   &__go-back-btn {
@@ -74,10 +80,7 @@
     height: 50px;
     text-align: center;
     cursor: pointer;
-    transition: 0.2s;
-    position: relative;
-    bottom: 50px;
-    right: 100px;
+    transition: 0.15s all ease-in-out;
     border: 1px solid #c3c3c3;
 
     img {
@@ -100,9 +103,25 @@
     }
   }
 
-  @media (max-width: 768px) {
-    button {
-      position: static;
-    }
+  &__stop-btn {
+    display: inline-block;
+    background-color: #fff;
+    color: red;
+    border-radius: 30px;
+    padding: 10px 15px;
+    min-width: 80px;
+    font-size: 16px;
+    font-weight: 600;
+    width: 160px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid red;
+  }
+
+  &__stop-btn:hover {
+    background-color: red;
+    color: #fff;
   }
 }

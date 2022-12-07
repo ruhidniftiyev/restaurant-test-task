@@ -1,0 +1,10 @@
+export const ADD_NEW_ORDER = 'ADD_NEW_ORDER';
+export const ADD_FOOD = 'ADD_FOOD';
+export const REMOVE_FOOD = 'REMOVE_FOOD';
+export const INCREMENT_FOOD = 'INCREMENT_FOOD';
+export const DECREMENT_FOOD = 'DECREMENT_FOOD';
+export const GET_PRICE = 'GET_PRICE';
+export const CURRENT_ORDER = 'GET_CURRENT_ORDER';
+export const GET_FOODS = 'GET_FOODS';
+export const STOP_ORDER = 'STOP_ORDER';
+export const REMOVE_ORDER = 'REMOVE_ORDER';
