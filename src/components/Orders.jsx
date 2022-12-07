@@ -1,5 +1,5 @@
 import React from 'react';
-import OrderItem from '../components/OrderItem';
+import OrderItem from './OrderItem';
 import ordersIcon from '../assets/orders-icon.svg';
 import noOrderImage from '../assets/no-orders.png';
 import { Link } from 'react-router-dom';
