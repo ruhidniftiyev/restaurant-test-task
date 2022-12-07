@@ -3,7 +3,16 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getCurrentOrderID } from '../redux/orders/actions';
 
-const OrderItem = ({ num, table, waiter, orderState, totalPrice, date }) => {
+type IOrderItem = {
+  num: number;
+  table: string;
+  waiter: string;
+  orderState: boolean;
+  totalPrice: number;
+  date: string;
+};
+
+const OrderItem: React.FC<IOrderItem> = ({ num, table, waiter, orderState, totalPrice, date }) => {
   const dispatch = useDispatch();
 
   const sawOrderClick = () => {

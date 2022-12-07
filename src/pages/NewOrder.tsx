@@ -4,13 +4,19 @@ import { Link, useNavigate } from 'react-router-dom';
 import { addNewOrderAction } from '../redux/orders/actions';
 import arrowLeft from '../assets/grey-arrow-left.svg';
 
-const NewOrder = () => {
-  const selectTableEl = useRef(null);
-  const selectWaiterEl = useRef(null);
+const NewOrder: React.FC = () => {
+  const selectTableEl = useRef<HTMLSelectElement>(null);
+  const selectWaiterEl = useRef<HTMLSelectElement>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const tablesArray = [
+  type tableItem = {
+    id: number;
+    title: string;
+    value: string;
+  };
+
+  const tablesArray: tableItem[] = [
     { id: 0, title: 'Masa 1', value: 'm1' },
     { id: 1, title: 'Masa 2', value: 'm2' },
     { id: 2, title: 'Masa 3', value: 'm3' },
@@ -21,7 +27,13 @@ const NewOrder = () => {
     { id: 7, title: 'Otaq 3', value: 'o3' },
   ];
 
-  const waitersArray = [
+  type waiterItem = {
+    id: number;
+    name: string;
+    value: string;
+  };
+
+  const waitersArray: waiterItem[] = [
     { id: 0, name: 'Əli', value: 'Əli' },
     { id: 1, name: 'İlham', value: 'İlham' },
     { id: 2, name: 'Fəridə', value: 'Fəridə' },
@@ -30,10 +42,10 @@ const NewOrder = () => {
     { id: 5, name: 'Aysel', value: 'Aysel' },
   ];
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    const table = selectTableEl.current.value;
-    const waiter = selectWaiterEl.current.value;
+    const table = selectTableEl.current?.value;
+    const waiter = selectWaiterEl.current?.value;
     table &&
       waiter &&
       dispatch(
@@ -41,7 +53,7 @@ const NewOrder = () => {
           table,
           waiter,
           date: '-',
-          foods: [],
+          foods:[]
         }),
       ) &&
       navigate('/', { replace: true });

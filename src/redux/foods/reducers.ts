@@ -1,13 +1,26 @@
 import { DECREMENT_FOOD, GET_FOODS, GET_PRICE, INCREMENT_FOOD } from '../constants';
 
-const initialState = {
+interface IFoodItem {
+  foodsArray: AllItems[],
+  foodCount: number
+  foodPrice: number
+  totalFoodPrice: number
+}
+
+type AllItems = {
+  id: number;
+  title: string;
+  price: number;
+};
+
+const initialState:IFoodItem = {
   foodsArray: [],
   foodCount: 1,
   foodPrice: 0,
   totalFoodPrice: 0,
 };
 
-const foodReducer = (state = initialState, action) => {
+const foodReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case GET_FOODS:
       return { ...state, foodsArray: action.payload };

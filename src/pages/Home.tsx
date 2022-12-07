@@ -1,7 +1,7 @@
 import React from 'react';
 import Orders from '../components/Orders';
 
-const Home = () => {
+const Home :React.FC = () => {
   return (
     <>
       <div className="content__items">

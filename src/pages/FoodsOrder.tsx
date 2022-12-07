@@ -9,13 +9,23 @@ import { getOrderIdSelector, getOrdersSelector } from '../redux/orders/selectors
 const FoodsOrder = () => {
   const dispatch = useDispatch();
   const orders = useSelector(getOrdersSelector);
-  const currentId = useSelector(getOrderIdSelector);
+  const currentId: number = useSelector(getOrderIdSelector);
 
-  const currentOrderState = orders[currentId].orderState;
-  const foodsOrder = orders[currentId].foods;
-  const totalBill = orders[currentId].totalPrice;
+  type oOrderFoodsItems = {
+    title: string;
+    foodIndex: number;
+    foodCount: number;
+    totalPrice: number;
+    time: string;
+    status: boolean;
+    nums: number;
+  };
 
-  const addZero = (timeNum) => {
+  const currentOrderState: boolean = orders[currentId]?.orderState;
+  const foodsOrder:oOrderFoodsItems[] = orders[currentId]?.foods;
+  const totalBill:number = orders[currentId]?.totalPrice;
+
+  const addZero = (timeNum: number) => {
     return timeNum < 10 ? `0${timeNum}` : timeNum;
   };
 
@@ -52,10 +62,10 @@ const FoodsOrder = () => {
             <p className="food-item__order-status-t">Status</p>
             <p>Geri</p>
           </div>
-          {foodsOrder.length === 0 ? (
+          {foodsOrder?.length === 0 ? (
             <p className="foods-order__error-message">Məhsul yoxdur😕</p>
           ) : (
-            foodsOrder.map((food, index) => <FoodItem key={index} {...food} />)
+            foodsOrder?.map((food: any, index: number) => <FoodItem key={index} {...food} />)
           )}
         </div>
         <div className="foods-order__details">
@@ -82,7 +92,7 @@ const FoodsOrder = () => {
         </div>
         <div className="foods-order__stop">
           <Link to="/">
-            {foodsOrder.length === 0 ? (
+            {foodsOrder?.length === 0 ? (
               <button onClick={removeOrderClick} className="foods-order__stop-btn">
                 Ləğv et
               </button>

@@ -7,7 +7,34 @@ import {
   STOP_ORDER,
 } from '../constants';
 
-const initialState = {
+type FoodItem = {
+  title: string;
+  foodIndex: number;
+  foodCount: number;
+  totalPrice: number;
+  time: string;
+  status: boolean;
+  nums: number;
+};
+
+type OrdersItem = {
+  table: string;
+  waiter: string;
+  orderState: boolean;
+  date: string;
+  foods: FoodItem[];
+  totalPrice: number;
+};
+
+interface OrderStateItem {
+  orders: OrdersItem[];
+  num: number;
+  orderId: number;
+  foodNum: number;
+  cash: number;
+}
+
+const initialState: OrderStateItem = {
   orders: [],
   num: 1,
   orderId: 0,
@@ -15,7 +42,7 @@ const initialState = {
   cash: 0,
 };
 
-const orderReducer = (state = initialState, action) => {
+const orderReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case ADD_NEW_ORDER:
       return {
@@ -26,8 +53,8 @@ const orderReducer = (state = initialState, action) => {
     case ADD_FOOD:
       return {
         ...state,
-        orders: state.orders.map((order, index) => {
-          return index === state.orderId
+        orders: state.orders?.map((order, index) => {
+          return index === state?.orderId
             ? {
                 ...order,
                 foods: [...order.foods, { ...action.payload, nums: order.foods.length + 1 }],

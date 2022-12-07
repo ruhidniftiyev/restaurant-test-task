@@ -12,16 +12,22 @@ import {
 import { getAllFoods, getSelectFoodCount, getTotalFoodPrice } from '../redux/foods/selectors';
 import { addFoodAction } from '../redux/orders/actions';
 
+type FoodItem = {
+  id: number;
+  title: string;
+  price: number;
+};
+
 const OrderInfo = () => {
-  const foodSelectEl = useRef(null);
-  const [foods, setFoods] = useState([]);
-  
+  const foodSelectEl = useRef<HTMLSelectElement>(null);
+  const [foods, setFoods] = useState<FoodItem[]>([]);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
-  const foodsFromAPI = useSelector(getAllFoods);
-  const foodCount = useSelector(getSelectFoodCount);
-  const totalPrice = useSelector(getTotalFoodPrice);
+
+  const foodsFromAPI: FoodItem[] = useSelector(getAllFoods);
+  const foodCount: number = useSelector(getSelectFoodCount);
+  const totalPrice: number = useSelector(getTotalFoodPrice);
 
   useEffect(() => {
     axios.get('https://638e18094190defdb7563f91.mockapi.io/foods').then((res) => {
@@ -30,7 +36,7 @@ const OrderInfo = () => {
     });
   }, []);
 
-  const addZero = (timeNum) => {
+  const addZero = (timeNum: number) => {
     return timeNum < 10 ? `0${timeNum}` : timeNum;
   };
 
@@ -40,10 +46,11 @@ const OrderInfo = () => {
     return time;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
-    const food = foodSelectEl.current.value;
-    const foodIndex = foodSelectEl.current.selectedIndex;
+    const food = foodSelectEl.current?.value;
+    const foodIndex = foodSelectEl.current?.selectedIndex;
+
     food &&
       dispatch(
         addFoodAction({
@@ -57,8 +64,8 @@ const OrderInfo = () => {
       navigate('/foods', { replace: true });
   };
 
-  const foodSelect = (e) => {
-    dispatch(getFoodPriceAction(foodSelectEl.current.value));
+  const foodSelect = () => {
+    dispatch(getFoodPriceAction(+foodSelectEl.current?.value));
   };
 
   const onClickAddFood = () => {
@@ -83,7 +90,9 @@ const OrderInfo = () => {
                 Məhsulu seçin
               </option>
               {foods.map((food) => (
-                <option key={food.id} value={food.price}>{food.title}</option>
+                <option key={food.id} value={food.price}>
+                  {food.title}
+                </option>
               ))}
             </select>
           </label>{' '}

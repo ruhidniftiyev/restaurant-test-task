@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import '../src/scss/app.scss';
 import './scss/components/_header.scss';
 import { Route, Routes } from 'react-router';
-import NewOrder from './pages//NewOrder';
+import NewOrder from './pages/NewOrder';
 import OrderInfo from './pages/OrderInfo';
 import FoodsOrder from './pages/FoodsOrder';
 

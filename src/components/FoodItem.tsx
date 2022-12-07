@@ -2,7 +2,16 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeFoodAction } from '../redux/orders/actions';
 
-const FoodItem = ({ nums, title, foodCount, totalPrice, time, waitTime, status }) => {
+type IFoodItems = {
+  nums: number;
+  title: string;
+  foodCount: number;
+  totalPrice: number;
+  time: string;
+  status: Boolean;
+};
+
+const FoodItem: React.FC<IFoodItems> = ({ nums, title, foodCount, totalPrice, time, status }) => {
   const dispatch = useDispatch();
 
   const removeFromOrder = () => {
@@ -16,7 +25,7 @@ const FoodItem = ({ nums, title, foodCount, totalPrice, time, waitTime, status }
       <p className="food-item__count">{foodCount}</p>
       <p className="food-item__price">{totalPrice}</p>
       <p className="food-item__order-time">{time}</p>
-      <p className="food-item__wait-time">{waitTime}0 dəq.</p>
+      <p className="food-item__wait-time">0 dəq.</p>
       <p
         className={
           status === false ? 'food-item__order-status disabled' : 'food-item__order-status'
